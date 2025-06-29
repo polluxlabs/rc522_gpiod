@@ -36,159 +36,45 @@ Enabled SPI interface
 🔌 Hardware Wiring (SPI)
 Connect your RC522 module to your Raspberry Pi's GPIO pins as follows:
 
-RC522 Pin
+RC522 Pin   Pi 5 Pin (Physical)     GPIO (BCM)      Description
+SDA/SS      Pin 24                  GPIO 8          Chip Select (CS)
+SCK         Pin 23                  GPIO 11         SPI Clock
+MOSI        Pin 19                  GPIO 10         Master Out -> Slave In
+MISO        Pin 21                  GPIO 9          Master In <- Slave Out
+RST         Pin 15                  GPIO 22         Reset
+GND         Pin 6, 9, etc.          -               Ground
+VCC         Pin 2 or 4              -               3.3V Power
 
-Pi 5 Pin (Physical)
-
-GPIO (BCM)
-
-Description
-
-SDA/SS
-
-Pin 24
-
-GPIO 8
-
-Chip Select (CS)
-
-SCK
-
-Pin 23
-
-GPIO 11
-
-SPI Clock
-
-MOSI
-
-Pin 19
-
-GPIO 10
-
-Master Out -> Slave In
-
-MISO
-
-Pin 21
-
-GPIO 9
-
-Master In <- Slave Out
-
-RST
-
-Pin 15
-
-GPIO 22
-
-Reset
-
-GND
-
-Pin 6, 9, etc.
-
--
-
-Ground
-
-VCC
-
-Pin 2 or 4
-
--
-
-3.3V Power
-
-
-In Google Sheets exportieren
 Important: Only connect the RC522 to a 3.3V pin, never to 5V, as this can damage the module!
 
 🚀 Installation & Setup
 1. Enable SPI Interface
 If you haven't already, enable the SPI interface on your Raspberry Pi:
 
-Bash
-
 sudo raspi-config
+
 Navigate to 3 Interface Options -> I4 SPI and enable the interface.
 
 2. Install System Dependencies
 Open a terminal and install the necessary Python libraries:
 
-Bash
-
 sudo apt update
 sudo apt install python3-spidev python3-libgpiod -y
+
 3. Download Project Files
-Download the two files below into a new project directory on your Raspberry Pi (or create them by copying and pasting the code).
+Download the two files into a new project directory on your Raspberry Pi (or create them by copying and pasting the code).
 
 a) The Library File: rc522_spi_library.py
 
 This is the actual library.
 
-▶️ Show Code for rc522_spi_library.py
-b) The Example File: card_reader_example.py
+b) The Example File: example.py
 
 This script imports the library and shows how to read a card's UID.
 
-Python
-
-# -*- coding: utf-8 -*-
-
-import time
-import logging
-from rc522_spi_library import RC522SPILibrary, StatusCodes
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-def main():
-    """
-    General example for reading the UID from any RFID card.
-    """
-    print("Starting the RFID Card Reader...")
-    print("Hold any RFID card near the reader.")
-    print("Press CTRL+C to exit.")
-
-    reader = None
-    try:
-        reader = RC522SPILibrary(rst_pin=22)
-        last_uid = None
-
-        while True:
-            status, _ = reader.request()
-            if status == StatusCodes.OK:
-                status, uid = reader.anticoll()
-                if status == StatusCodes.OK and uid != last_uid:
-                    last_uid = uid
-                    uid_str = ":".join([f"{i:02X}" for i in uid])
-                    print("\n================================")
-                    print(f"Card detected! UID: {uid_str}")
-                    print("================================")
-            else:
-                if last_uid is not None:
-                    print("\nCard removed.")
-                    last_uid = None
-            time.sleep(0.1)
-
-    except Exception as e:
-        logging.error(f"An error occurred: {e}")
-    except KeyboardInterrupt:
-        print("\nExiting program.")
-    finally:
-        if reader:
-            reader.cleanup()
-            print("Resources released.")
-
-if __name__ == '__main__':
-    main()
-💡 Usage
-In your terminal, navigate to the folder where you saved the two files and run the example script:
-
-Bash
-
+Run the example:
 python3 card_reader_example.py
+
 Now, when you hold an RFID card near the reader, its UID should appear on the screen. You can copy this UID and use it in your own projects for access control, identification, or triggering actions.
 
 🤝 Contributing
