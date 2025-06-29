@@ -84,7 +84,7 @@ This script imports the library and shows how to read a card's UID.
 In your terminal, navigate to the folder where you saved the two files and run the example script:
 
 ```bash
-python3 card_reader_example.py
+python3 example.py
 ```
 
 Now, when you hold an RFID card near the reader, its UID should appear on the screen. You can copy this UID and use it in your own projects for access control, identification, or triggering actions.
