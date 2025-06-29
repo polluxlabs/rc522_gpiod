@@ -1,8 +1,3 @@
-Of course. Here is the text for your `README.md` file, correctly formatted for GitHub.
-
-Simply copy the entire content from the block below and paste it into the `README.md` file in your GitHub repository. GitHub will automatically render it into a well-formatted page.
-
------
 
 # Lean RC522 Python Library for Raspberry Pi 5
 
