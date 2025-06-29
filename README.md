@@ -20,6 +20,7 @@ Clear Example Code: Includes a ready-to-run example for reading card UIDs.
 Hardware
 Raspberry Pi 5 (or Pi 4)
 
+
 RC522 RFID Reader Module
 
 RFID Cards or Tags (e.g., MIFARE Classic 1K)
