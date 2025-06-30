@@ -42,9 +42,9 @@ Connect your RC522 module to your Raspberry Pi's GPIO pins as follows:
 | **SCK** | Pin 23              | GPIO 11    | SPI Clock              |
 | **MOSI** | Pin 19              | GPIO 10    | Master Out -\> Slave In |
 | **MISO** | Pin 21              | GPIO 9     | Master In \<- Slave Out |
-| **RST** | Pin 15              | GPIO 22    | Reset                  |
+| **RST** | Pin 22              | GPIO 22    | Reset                  |
 | **GND** | Pin 6, 9, etc.      | -          | Ground                 |
-| **VCC** | Pin 2 or 4          | -          | 3.3V Power             |
+| **VCC** | Pin 17          | -          | 3.3V Power             |
 
 **Important:** Only connect the RC522 to a **3.3V pin**, never to 5V, as this can damage the module\!
 
