@@ -5,7 +5,7 @@ A minimalist and easy-to-integrate Python library for controlling the RC522 RFID
 
 This project was created to provide a straightforward solution without heavy dependencies. The entire library is contained within a single file to make integration into your own projects as simple as possible. Created by Pollux Labs with a little help from our AI overlord. (https://en.polluxlabs.net) 
 
-🤝 Support Pollux Labs on Steady (https://steady.page/de/pollux-labs-en/about)
+🤝 Support Pollux Labs on Steady (https://steady.page/en/pollux-labs-en/about)
 
 ## ✨ Features
 
