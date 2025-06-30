@@ -94,7 +94,3 @@ Now, when you hold an RFID card near the reader, its UID should appear on the sc
 ## 🤝 Contributing
 
 Contributions are welcome\! If you find any bugs or have improvements, please feel free to create an Issue or a Pull Request in this repository.
-
-## 📄 License
-
-This project is licensed under the [MIT License](https://www.google.com/search?q=LICENSE).
