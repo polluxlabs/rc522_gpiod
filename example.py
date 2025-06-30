@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Pollux Labs
+# en.polluxlabs.net
 
 import time
 import logging
