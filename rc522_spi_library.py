@@ -3,7 +3,8 @@
 # A lean Python library for the RC522 RFID reader on the Raspberry Pi 5 via SPI.
 # Combines the necessary classes and constants for easy integration.
 #
-# Original structure based on the provided repository.
+# Pollux Labs
+# en.polluxlabs.net
 #
 
 import time
