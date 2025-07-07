@@ -4,7 +4,7 @@
 # Combines the necessary classes and constants for easy integration.
 #
 # Pollux Labs
-# en.polluxlabs.net
+# polluxlabs.io
 #
 
 import time
